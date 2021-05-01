@@ -4,18 +4,19 @@ import { NavLink } from "react-router-dom";
 export const Nav = styled.nav`
   display: flex;
   justify-content: flex-end;
+  background-color: #1f1f1f;
 `;
 
 export const StyledNavLink = styled(NavLink).attrs((props) => ({
   activeStyle: { color: props.to !== "/" && "#1f78ac", fontWeight: "600" },
 }))`
-  margin: 2% 3%;
+  margin: 2% 1.8%;
   ${({ to }) =>
     to === "/" && { marginRight: "auto", fontWeight: 800, fontSize: "20px" }};
   text-decoration: none;
-  color: black;
+  color: white;
   height: 100%;
-  transition: all 0.3s ease-in;
+  transition: all 0.3s cubic-bezier(0.36, 0.33, 0.44, 1.09);
   position: relative;
   z-index: 1;
   padding: 10px;
@@ -23,11 +24,11 @@ export const StyledNavLink = styled(NavLink).attrs((props) => ({
 
   &:after,
   &:before {
-    transition: all 0.5s;
+    transition: all 0.3s cubic-bezier(0.36, 0.33, 0.44, 1.09);
   }
 
   &:hover {
-    color: white;
+    color: black;
   }
 
   &:after {
@@ -42,7 +43,7 @@ export const StyledNavLink = styled(NavLink).attrs((props) => ({
     height: 1px;
     content: ".";
     color: transparent;
-    background: #022b3a;
+    background: #daa520;
     visibility: none;
     opacity: 0;
     z-index: -1;
@@ -53,4 +54,8 @@ export const StyledNavLink = styled(NavLink).attrs((props) => ({
     visibility: visible;
     height: 100%;
   }
+
+  /* @media (max-width: 768px) {
+    display: none;
+  } */
 `;

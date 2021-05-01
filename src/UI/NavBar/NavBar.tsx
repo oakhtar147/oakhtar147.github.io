@@ -1,16 +1,16 @@
-import { StyledNavLink, Nav }  from './NavigationLinks.styles';
+import { Nav, StyledNavLink }  from './NavBar.styles';
 
 interface Routes {
   [k: string]: string;
 }
 
-const NavigationLinks = () => {
+const NavBar = () => {
   const routes: Routes = {
     "Osama Akhtar.": "/",
     Skills: "/skills",
     Projects: "/projects",
+    Certificates: "/certificates",
     Contact: "/contact",
-    Certificates: "/certificates"
   }
 
   return (
@@ -23,4 +23,4 @@ const NavigationLinks = () => {
 }
 
 
-export default NavigationLinks;
+export default NavBar;

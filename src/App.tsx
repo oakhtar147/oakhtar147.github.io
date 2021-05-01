@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import NavigationLinks from 'UI/Navigation/NavigationLinks/NavigationLinks';
+import NavBar from 'UI/NavBar/NavBar';
 import Footer from 'UI/Footer/Footer.styles';
 
 import About from "components/About/About";
@@ -13,7 +13,7 @@ import Contact from "components/Contact/Contact";
 const App: React.FC = () => {
   return (
     <>
-    <NavigationLinks />
+    <NavBar />
       <Switch>
         <Route path="/" exact component={About} />
         <Route path="/skills" exact component={Skills} />
@@ -21,7 +21,7 @@ const App: React.FC = () => {
         <Route path="/projects" exact component={Projects} />
         <Route path="/contact" exact component={Contact} />
       </Switch>
-    <Footer>Made with 💙 by Osama Akhtar.</Footer>
+    <Footer>Made with 🖤  by Osama Akhtar.</Footer>
     </>
   );
 }
