@@ -1,7 +1,7 @@
 import React from 'react'
 import NavigationLinks from '../NavigationLinks/NavigationLinks';
 
-import Nav from './NavBar.styles';
+import { Nav } from './NavBar.styles';
 
 const NavBar = () => {
   return (

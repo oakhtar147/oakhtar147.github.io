@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import NavBar from 'UI/Navigation/NavBar/NavBar';
+import NavigationLinks from 'UI/Navigation/NavigationLinks/NavigationLinks';
 import Footer from 'UI/Footer/Footer.styles';
 
 import About from "components/About/About";
@@ -13,7 +13,7 @@ import Contact from "components/Contact/Contact";
 const App: React.FC = () => {
   return (
     <>
-    <NavBar />
+    <NavigationLinks />
       <Switch>
         <Route path="/" exact component={About} />
         <Route path="/skills" exact component={Skills} />

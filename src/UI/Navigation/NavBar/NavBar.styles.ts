@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-const Nav = styled.nav`
+export const Nav = styled.nav`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 `;
-
-export default Nav;

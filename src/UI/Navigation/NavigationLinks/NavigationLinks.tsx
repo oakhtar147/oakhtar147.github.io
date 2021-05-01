@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { StyledNavLink, Nav }  from './NavigationLinks.styles';
 
 interface Routes {
   [k: string]: string;
@@ -6,7 +6,7 @@ interface Routes {
 
 const NavigationLinks = () => {
   const routes: Routes = {
-    About: "/",
+    "Osama Akhtar.": "/",
     Skills: "/skills",
     Projects: "/projects",
     Contact: "/contact",
@@ -14,11 +14,11 @@ const NavigationLinks = () => {
   }
 
   return (
-    <>
+    <Nav>
       {Object.keys(routes).map(route => (
-        <NavLink key={route} to={routes[route]}>{route}</NavLink>
+        <StyledNavLink key={route} to={routes[route]}>{route}</StyledNavLink>
       ))}
-    </>
+    </Nav>
   )
 }
 
