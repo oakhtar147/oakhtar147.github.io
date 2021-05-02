@@ -31,15 +31,18 @@ export default {
     {
       name: "bio",
       title: "Bio",
+      type: "string",
+    },
+    {
+      name: "whatIDo",
+      title: "What I do",
+      type: "string",
+    },
+    {
+      name: "socialLinks",
+      title: "Social Links",
       type: "array",
-      of: [
-        {
-          title: "Block",
-          type: "block",
-          styles: [{ title: "Normal", value: "normal" }],
-          lists: [],
-        },
-      ],
+      of: [{ type: "string" }],
     },
   ],
   preview: {
