@@ -5,10 +5,18 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: flex-end;
   background-color: #1f1f1f;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
 `;
 
 export const StyledNavLink = styled(NavLink).attrs((props) => ({
-  activeStyle: { color: props.to !== "/" && "#1f78ac", fontWeight: "600" },
+  activeStyle: {
+    color: props.to !== "/" && "#a36018",
+    fontWeight: "600",
+  },
 }))`
   margin: 2% 1.8%;
   ${({ to }) =>
@@ -21,6 +29,7 @@ export const StyledNavLink = styled(NavLink).attrs((props) => ({
   z-index: 1;
   padding: 10px;
   text-transform: uppercase;
+  ${({ showDropdown }) => showDropdown && { display: "block" }}
 
   &:after,
   &:before {
@@ -55,7 +64,10 @@ export const StyledNavLink = styled(NavLink).attrs((props) => ({
     height: 100%;
   }
 
-  /* @media (max-width: 768px) {
-    display: none;
-  } */
+  @media (max-width: 768px) {
+    ${({ to }) => to !== "/" && { display: "none" }};
+    margin: 0.8% 0%;
+    margin-right: 1.5%;
+    padding: 2% 2%;
+  }
 `;
