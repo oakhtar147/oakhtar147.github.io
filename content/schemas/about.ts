@@ -44,6 +44,12 @@ export default {
       type: "array",
       of: [{ type: "string" }],
     },
+    {
+      name: "contactData",
+      title: "Contact Data",
+      type: "reference",
+      to: [{ type: "contact" }],
+    },
   ],
   preview: {
     select: {

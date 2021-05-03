@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade'
+import Zoom from 'react-reveal/Zoom';
 
 import sanityClient from 'sanityClient';
 import { Main, 
@@ -44,17 +45,19 @@ const About = () => {
 
   return (
     <>
-    <Fade>
-      <Main>        
-        <RoundedImage src={aboutData.imageUrl} alt="My display picture" />
+      <Main>     
+        <Zoom>
+          <RoundedImage src={aboutData.imageUrl} alt="My display picture" />          
+        </Zoom>   
+      <Fade right>
         <section>
           <Bio>{aboutData.bio}</Bio>
           <div style={{ display: "flex", justifyContent: "center" }}>
             {aboutData.socialLinks.map(site => <StyledSocialIcon key={site} url={site} fgColor="white" />)}
           </div>
         </section>
+      </Fade>
       </Main>
-    </Fade>
     <Description>
       <h2>What I do?</h2>
       <FlexContainer>

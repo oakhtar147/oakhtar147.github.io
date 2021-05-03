@@ -15,7 +15,7 @@ const NavBar = () => {
     Skills: "/skills",
     Projects: "/projects",
     Certificates: "/certificates",
-    Contact: "/contact",
+    Contact: "/contact",    
   }
 
   return (
