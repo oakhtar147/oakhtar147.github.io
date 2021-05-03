@@ -1,7 +1,8 @@
 import { LinearProgress } from '@material-ui/core'
+import Fade from 'react-reveal/Fade';
 
 import loading from 'assets/loading2.svg';
-import { LoadingImage } from './Loading.styles';
+import { LoadingImage, Figure } from './Loading.styles';
 
 const factsAboutMe = [
   "Osama likes to have tea.",
@@ -14,10 +15,13 @@ const Loading = () => {
   return (
     <>
       <LinearProgress color="secondary" />
-      <figure style={{ display: "flex", flexDirection: "column", alignItems: "center", minHeight: "100vh"}}>
-        <LoadingImage src={loading} />
-        <figcaption>{factsAboutMe}</figcaption>
-      </figure>
+      <Figure>
+        <Fade big cascade>
+          <LoadingImage src={loading} />
+          <figcaption>{factsAboutMe}</figcaption>
+        </Fade>
+      </Figure>
+      <LinearProgress color="secondary" />
     </>
   )
 }

@@ -2,12 +2,18 @@ import styled from "styled-components";
 import { SocialIcon } from "react-social-icons";
 
 export const DescriptionSVG = styled.img`
-  width: 45%;
-  height: 50%;
+  width: 80%;
+  height: 70%;
   margin: 2%;
 
   @media only screen and (max-width: 525px) {
     width: 70%;
+    height: 60%;
+    margin: 4%;
+  }
+
+  @media only screen and (max-width: 910px) {
+    width: 60%;
     height: 60%;
     margin: 4%;
   }
@@ -17,6 +23,7 @@ export const RoundedImage = styled.img`
   width: 300px;
   height: 300px;
   border-radius: 50%;
+  background-size: cover;
   object-fit: cover;
   transition: transform 0.2s linear;
 
@@ -71,6 +78,7 @@ export const Description = styled.section`
     text-transform: uppercase;
     font-size: 2em;
     letter-spacing: 2px;
+    margin-bottom: 4%;
   }
 `;
 

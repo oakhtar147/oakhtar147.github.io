@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react';
+import Fade from 'react-reveal/Fade'
 
 import sanityClient from 'sanityClient';
-import { Main, RoundedImage, Bio, StyledSocialIcon, Description, FlexContainer, DescriptionSVG } from './About.styles';
+import { Main, 
+  RoundedImage, 
+  Bio, 
+  StyledSocialIcon,
+  Description, 
+  FlexContainer, 
+  DescriptionSVG,
+} from './About.styles';
 import Loading from 'UI/Loading/Loading';
 import description from 'assets/description.svg';
 
@@ -12,7 +20,6 @@ interface AboutData {
   whatIDo: string;
   socialLinks: string[];
 }
-
 
 const About = () => {
   const [aboutData, setAboutData] = useState<AboutData>();
@@ -31,28 +38,36 @@ const About = () => {
   }, [])
 
   if (typeof aboutData === "undefined" || showLoadingScreen) {
-    setTimeout(() => setShowLoadingScreen(false), 1250);
+    setTimeout(() => setShowLoadingScreen(false), 1700);
     return <Loading />
   }
 
   return (
     <>
-    <Main>        
-      <RoundedImage src={aboutData.imageUrl} alt="My picture" />
-      <section>
-        <Bio>{aboutData.bio}</Bio>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          {aboutData.socialLinks.map(site => <StyledSocialIcon key={site} url={site} fgColor="white" />)}
-        </div>
-      </section>
-    </Main>
+    <Fade>
+      <Main>        
+        <RoundedImage src={aboutData.imageUrl} alt="My display picture" />
+        <section>
+          <Bio>{aboutData.bio}</Bio>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            {aboutData.socialLinks.map(site => <StyledSocialIcon key={site} url={site} fgColor="white" />)}
+          </div>
+        </section>
+      </Main>
+    </Fade>
     <Description>
       <h2>What I do?</h2>
       <FlexContainer>
-        <p>
-          {aboutData.whatIDo} 
-        </p>
-        <DescriptionSVG src={description} alt="Illustration of what I do."/>
+        <Fade left>
+          <p>
+            {aboutData.whatIDo} 
+          </p>
+        </Fade>
+        <div style={{textAlign: "center"}}>
+          <Fade right>
+                <DescriptionSVG src={description} alt="Illustration of what I do."/>
+          </Fade>
+        </div>
       </FlexContainer>
     </Description>
     </>

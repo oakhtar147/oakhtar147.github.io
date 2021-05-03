@@ -1,11 +1,11 @@
 html {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  background-color: #111;
 }
 
 body {
   margin: 0;
-  background-color: #111;
   color: white;
   min-height: 100vh;
   -ms-overflow-style: none;  
