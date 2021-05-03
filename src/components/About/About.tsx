@@ -1,38 +1,61 @@
 import { useState, useEffect } from 'react';
 
-import { Main, RoundedImage, Description, StyledSocialIcon } from './About.styles';
-import myImage from 'assets/me.jpg';
+import sanityClient from 'sanityClient';
+import { Main, RoundedImage, Bio, StyledSocialIcon, Description, FlexContainer, DescriptionSVG } from './About.styles';
+import Loading from 'UI/Loading/Loading';
+import description from 'assets/description.svg';
 
-interface Links {
-  [socialMedia: string]: string
+interface AboutData {
+  name: string;
+  imageUrl: string;
+  bio: string;
+  whatIDo: string;
+  socialLinks: string[];
 }
 
+
 const About = () => {
-  const [aboutData, setAboutData] = useState(null);
+  const [aboutData, setAboutData] = useState<AboutData>();
+  const [showLoadingScreen, setShowLoadingScreen] = useState(true);
 
   useEffect(() => {
-    ;
-  })
+    sanityClient.fetch(`*[_type == "about"][0]{
+      name,
+      "imageUrl": image.asset->url,
+      bio,
+      whatIDo,
+      socialLinks
+    }`)
+      .then(((data: AboutData) => setAboutData(data)))
+      .catch(err => console.log(err))
+  }, [])
 
-  const SocialLinks: Links = {
-    GitHub: "https://github.com/oakhtar147",
-    LinkedIn: "https://www.linkedin.com/in/osama-akhtar-25253a1a9/",
-    Facebook: "https://www.facebook.com/OsamaXVI/",
-    Instagram: "https://www.instagram.com/_osamaakhtar/",
-    Twitter: "https://twitter.com/_osamaakhtar",
+  if (typeof aboutData === "undefined" || showLoadingScreen) {
+    setTimeout(() => setShowLoadingScreen(false), 1250);
+    return <Loading />
   }
 
-
   return (
-    <Main>
-      <RoundedImage src={myImage} alt="My picture" />
+    <>
+    <Main>        
+      <RoundedImage src={aboutData.imageUrl} alt="My picture" />
       <section>
-        <Description>Hi! I am Osama Akhtar, a full-stack developer!</Description>
+        <Bio>{aboutData.bio}</Bio>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          {Object.keys(SocialLinks).map(site => <StyledSocialIcon url={SocialLinks[site]} fgColor="white" />)}
+          {aboutData.socialLinks.map(site => <StyledSocialIcon key={site} url={site} fgColor="white" />)}
         </div>
       </section>
     </Main>
+    <Description>
+      <h2>What I do?</h2>
+      <FlexContainer>
+        <p>
+          {aboutData.whatIDo} 
+        </p>
+        <DescriptionSVG src={description} alt="Illustration of what I do."/>
+      </FlexContainer>
+    </Description>
+    </>
   )
 }
 

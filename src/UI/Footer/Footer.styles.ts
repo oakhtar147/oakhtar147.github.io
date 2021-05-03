@@ -6,7 +6,8 @@ const Footer = styled.footer`
   background-color: #daa520;
   color: black;
   padding: 12px;
-  position: fixed;
+  position: relative;
+  left: 0;
   bottom: 0;
   width: 100%;
   font-weight: 500;

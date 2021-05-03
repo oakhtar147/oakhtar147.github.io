@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export const Nav = styled.nav`
   display: flex;
   justify-content: flex-end;
-  background-color: #1f1f1f;
+  background-color: #111;
 
   @media (max-width: 768px) {
     justify-content: space-between;
