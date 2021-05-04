@@ -7,7 +7,7 @@ import * as yup from 'yup';
 import emailjs from 'emailjs-com';
 import Zoom from 'react-reveal/Zoom';
 
-import { Button } from './Form.styles';
+import { FormContainer, MessageContainer, Button } from './Form.styles';
 
 interface FormValues { name: string; email: string; message: string }
 
@@ -70,7 +70,7 @@ const ContactForm = () => {
 
   return (
     <div>
-      <form onSubmit={formik.handleSubmit}>
+      <FormContainer onSubmit={formik.handleSubmit}>
         <TextField
           className={classes.root}
           InputProps={{className: classes.input}}
@@ -101,7 +101,7 @@ const ContactForm = () => {
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
         />
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", margin: "2%", }}>
+        <MessageContainer>
           <TextField
             className={classes.root}
             InputProps={{className: classes.input}}
@@ -130,8 +130,8 @@ const ContactForm = () => {
           >
             <Alert severity={emailError !== "" ? "error" : "success"}>{emailError !== "" ? emailError : "Osama has been notified about your message"}</Alert>
           </Snackbar>
-        </div>  
-      </form>
+        </MessageContainer>  
+      </FormContainer>
     </div>
   )
 }

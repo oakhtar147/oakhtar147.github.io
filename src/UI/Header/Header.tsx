@@ -13,7 +13,9 @@ interface Props {
 const Header: React.FC<Props> = ({ svgUrl, title, description }) => (
   <Head>
     <Zoom>
-      <PageSVG src={svgUrl} />
+      <Container>
+        <PageSVG src={svgUrl} />
+      </Container>
     </Zoom>
     <Fade right>
       <Container>

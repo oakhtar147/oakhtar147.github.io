@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { TextField } from '@material-ui/core';
 
 export const Button = styled.button`
   cursor: pointer;
@@ -14,5 +13,36 @@ export const Button = styled.button`
   &:hover {
     background-color: #1f1f1f;
     color: #a36018;
+  }
+
+  @media only screen and (max-width: 500px) {
+    margin: 5% 0;
+  }
+`;
+
+
+export const FormContainer = styled.form`
+  
+  @media only screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    & > div {
+      margin: 1%; 
+    }
+  }
+`;
+
+
+export const MessageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin: 2%;
+
+  @media only screen and (max-width: 500px) {
+    flex-direction: column;
   }
 `;

@@ -5,7 +5,7 @@ import Header from 'UI/Header/Header';
 import contactSVG from 'assets/contact.svg'
 import sanityClient from 'sanityClient';
 import Loading from 'UI/Loading/Loading';
-import { Container, ContactSocialIcon, Section } from './Contact.styles';
+import { Container, SubSection, ContactSocialIcon, Section } from './Contact.styles';
 import ContactForm from './Form/Form';
 
 interface ContactData {
@@ -35,10 +35,10 @@ const Contact = () => {
   }
 
   return (
-    <div style={{ minHeight: "100vh" }}>
+    <Container>
       <Header svgUrl={contactSVG} title="Reach me out!" description={contactData.description} />
       <Fade bottom>
-        <Container>
+        <SubSection>
           <Section>
             <h2>Email me</h2>
             <ContactForm />
@@ -47,9 +47,9 @@ const Contact = () => {
             <h2>Social Media</h2>
             {contactData.aboutData.socialLinks.map(site => <ContactSocialIcon key={site} url={site} fgColor="white" />)}
           </Section>
-        </Container>
+        </SubSection>
       </Fade>
-    </div>
+    </Container>
   )
 }
 
