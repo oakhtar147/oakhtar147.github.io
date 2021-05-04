@@ -1,4 +1,6 @@
 import React from 'react';
+import Fade from 'react-reveal/Fade';
+import Zoom from 'react-reveal/Zoom';
 
 import { Head, Container, PageSVG } from './Header.styles' 
 
@@ -10,11 +12,15 @@ interface Props {
 
 const Header: React.FC<Props> = ({ svgUrl, title, description }) => (
   <Head>
-    <PageSVG src={svgUrl} />
-    <Container>
-      <h1>{title}</h1>
-      <p>{description}</p>
-    </Container>
+    <Zoom>
+      <PageSVG src={svgUrl} />
+    </Zoom>
+    <Fade right>
+      <Container>
+        <h1>{title}</h1>
+        <p>{description}</p>
+      </Container>
+    </Fade>
   </Head>  
 );
 

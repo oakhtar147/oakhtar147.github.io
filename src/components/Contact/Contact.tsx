@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
+import Fade from 'react-reveal/Fade'
 
 import Header from 'UI/Header/Header';
 import contactSVG from 'assets/contact.svg'
 import sanityClient from 'sanityClient';
 import Loading from 'UI/Loading/Loading';
-import { Container, ContactSocialIcon } from './Contact.styles';
+import { Container, ContactSocialIcon, Section } from './Contact.styles';
+import ContactForm from './Form/Form';
 
 interface ContactData {
   title: string;
@@ -32,16 +34,23 @@ const Contact = () => {
     return <Loading />
   }
 
-  console.log(contactData);
   return (
-    <>
+    <div style={{ minHeight: "100vh" }}>
       <Header svgUrl={contactSVG} title="Reach me out!" description={contactData.description} />
-      <Container>
-        <h2>Social Media</h2>
-        {contactData.aboutData.socialLinks.map(site => <ContactSocialIcon url={site} fgColor="white" />)}
-      </Container>
-    </>
+      <Fade bottom>
+        <Container>
+          <Section>
+            <h2>Email me</h2>
+            <ContactForm />
+          </Section>
+          <Section>
+            <h2>Social Media</h2>
+            {contactData.aboutData.socialLinks.map(site => <ContactSocialIcon key={site} url={site} fgColor="white" />)}
+          </Section>
+        </Container>
+      </Fade>
+    </div>
   )
 }
 
-export default Contact
+export default Contact;

@@ -23,9 +23,9 @@ export const Container = styled.section`
 `;
 
 export const PageSVG = styled.img`
-  width: 40%;
-  height: 40%;
-  margin: 6%;
+  width: 100%;
+  height: 100%;
+  margin: 18%;
 
   @media only screen and (max-width: 525px) {
     width: 70%;
