@@ -50,6 +50,18 @@ export default {
       type: "reference",
       to: [{ type: "contact" }],
     },
+    {
+      name: "tools",
+      title: "Tools",
+      type: "array",
+      of: [{ type: "image" }],
+    },
+    {
+      name: "skillsData",
+      title: "Skills Data",
+      type: "reference",
+      to: [{ type: "skills" }],
+    },
   ],
   preview: {
     select: {
