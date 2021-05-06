@@ -36,7 +36,8 @@ const Skills = ()  => {
     const url = urlFor(tool.asset).url();
     if (typeof url === "string")
       return url;
-    return "";
+    else
+      return "";
   });
     
   return (

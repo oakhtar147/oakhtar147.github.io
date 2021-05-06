@@ -11,11 +11,18 @@ interface Props {
 }
 
 class SkillCloud extends Component<Props> {
+  constructor(props: Props) {
+    super(props);
+  }
+
   componentDidMount() {
     setInterval(() => this.forceUpdate(), 7000)
   }
 
+  // images = 
+
   render() {
+    console.log(this.props.toolsImages)
     return (
       <div>
         <div className="app-outer">
@@ -30,12 +37,11 @@ class SkillCloud extends Component<Props> {
                 padding: 5,
               }}
             >
-              <div>Wjafasf</div>
-              {/* {this.props.toolsImages.map((image) => {
+              {this.props.toolsImages.map((image) => (
                 <div key={uuid()}>
                   <img src={image} />
                 </div>
-              })} */}
+              ))}
             </TagCloud>
           </div>
         </div>
