@@ -11,27 +11,21 @@ interface Props {
 }
 
 class SkillCloud extends Component<Props> {
-  constructor(props: Props) {
-    super(props);
-  }
-
   componentDidMount() {
-    setInterval(() => this.forceUpdate(), 7000)
+    setInterval(() => this.forceUpdate(), 4000)
   }
-
-  // images = 
 
   render() {
     console.log(this.props.toolsImages)
     return (
       <div>
-        <div className="app-outer">
+        <div className="app-outer-random-suffix-avoid-global">
           <h1>Work</h1>
           <p>{this.props.description}</p>
-          <h2>Languages and Skills</h2>
-          <div className="app-inner">
+          <h2>Some Languages and Tools I Work With</h2>
+          <div className="app-inner-random-suffix-avoid-global">
             <TagCloud
-              className="tag-cloud"
+              className="tag-cloud-random-suffix-avoid-global"
               style={{
                 fontSize: 20,
                 padding: 5,

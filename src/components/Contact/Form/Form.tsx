@@ -9,7 +9,12 @@ import Zoom from 'react-reveal/Zoom';
 
 import { FormContainer, MessageContainer, Button } from './Form.styles';
 
-interface FormValues { name: string; email: string; message: string }
+interface FormValues { 
+  name: string;
+  email: string;
+  message: string 
+}
+
 
 const useStyles = makeStyles({
   root: {
@@ -20,6 +25,7 @@ const useStyles = makeStyles({
     margin: "0 1%",
   },
   input: {
+    WebkitBoxShadow: '0 0 0 1000px #1f1f1f inset',
     color: 'white',
   },
   label: {
@@ -42,8 +48,7 @@ const ContactForm = () => {
       .email('Enter a valid email')
       .required('Email is required'),
   })
-
-
+  
   const formik = useFormik({
     initialValues: initialValues,
     validationSchema: validationSchema,
@@ -73,8 +78,7 @@ const ContactForm = () => {
       <FormContainer onSubmit={formik.handleSubmit}>
         <TextField
           className={classes.root}
-          InputProps={{className: classes.input}}
-          inputProps={{autoComplete: "new-password"}}
+          inputProps={{autoComplete: "new-password", className: classes.input}}
           InputLabelProps={{className: classes.label}}
           variant="outlined"
           id="name"
@@ -88,8 +92,7 @@ const ContactForm = () => {
         />
         <TextField
           className={classes.root}
-          InputProps={{className: classes.input}}
-          inputProps={{autoComplete: "new-password"}}
+          inputProps={{autoComplete: "new-password", className: classes.input}}
           InputLabelProps={{className: classes.label}}
           variant="outlined"
           id="email"
@@ -104,7 +107,7 @@ const ContactForm = () => {
         <MessageContainer>
           <TextField
             className={classes.root}
-            InputProps={{className: classes.input}}
+            inputProps={{className: classes.input}}
             InputLabelProps={{className: classes.label}}
             variant="outlined"
             multiline
@@ -128,7 +131,9 @@ const ContactForm = () => {
             anchorOrigin={{vertical: "bottom", horizontal: "right" }} 
             onClose={() => setShowSnackbar(false)}
           >
-            <Alert severity={emailError !== "" ? "error" : "success"}>{emailError !== "" ? emailError : "Osama has been notified about your message"}</Alert>
+            <Alert severity={emailError !== "" ? "error" : "success"}>
+              {emailError !== "" ? emailError : "Osama has been notified about your message"}
+            </Alert>
           </Snackbar>
         </MessageContainer>  
       </FormContainer>
