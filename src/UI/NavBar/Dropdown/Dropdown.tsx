@@ -12,7 +12,6 @@ const Dropdown: React.FC<Props> = ({ showDropdown, handleCloseDropdown }) => {
   const routes: Routes = {
     Skills: "/skills",
     Projects: "/projects",
-    Certificates: "/certificates",
     Contact: "/contact",
   }
 

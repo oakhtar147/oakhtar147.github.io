@@ -28,7 +28,14 @@ export const Container = styled.section`
 
   @media only screen and (max-width: 930px) {
     text-align: center;
+    margin-left: 0;
   }
+
+  @media only screen and (max-width: 500px) {
+    & > p {
+      max-width: 70%;
+    }
+  } ;
 `;
 
 export const PageSVG = styled.img`

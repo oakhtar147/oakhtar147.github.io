@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Zoom from 'react-reveal/Zoom';
 
 import Header from 'UI/Header/Header'; 
 import skillsSVG from 'assets/skills.svg'
@@ -11,10 +12,10 @@ interface ProjectsData {
   title: string;
   description: string;
   projects: { list: {
-    projectTitle: string;
-    projectDescription: string;
-    projectLink: string;
-    projectType: string;
+    title: string;
+    description: string;
+    link: string;
+    type: string;
     _key: string;
     }[]
   }
@@ -42,20 +43,16 @@ const Projects = () => {
   }
   
   console.log(projectsData);
-  
+
   return (
     <Container>
       <Header title={projectsData.title} description={projectsData.description} svgUrl={skillsSVG} />
       <ProjectList>
-        <Project />
-        <Project />
-        <Project />
-        <Project />
-        <Project />
-        <Project />
-        <Project />
-        <Project />
-        <Project />
+        {projectsData.projects.list.map(projectDetails => (
+          <Zoom>
+            <Project key={projectDetails._key} project={projectDetails} />
+          </Zoom>
+        ))}
       </ProjectList>
     </Container>
   )

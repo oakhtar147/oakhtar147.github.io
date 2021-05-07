@@ -1,12 +1,25 @@
 import React from 'react'
 
-import { Card } from './Project.styles'
+import { ClickableProjectCard, Card } from './Project.styles'
 
-const Project = () => {
+interface Props {
+  project: {
+    title: string;
+    description: string;
+    link: string;
+    type: string;
+  }
+}
+
+const Project: React.FC<Props> = ({ project }) => {
   return (
+    <ClickableProjectCard href={project.link}>
     <Card>
-      Project
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+        <p>Type: {project.type}</p>
     </Card>
+    </ClickableProjectCard>
   )
 }
 

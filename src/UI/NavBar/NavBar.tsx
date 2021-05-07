@@ -14,7 +14,6 @@ const NavBar = () => {
     "Osama Akhtar.": "/",
     Skills: "/skills",
     Projects: "/projects",
-    Certificates: "/certificates",
     Contact: "/contact",    
   }
 

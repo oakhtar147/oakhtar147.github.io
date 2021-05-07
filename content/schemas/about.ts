@@ -72,22 +72,22 @@ export default {
           fields: [
             {
               type: "string",
-              name: "projectTitle",
+              name: "title",
               title: "Project Title",
             },
             {
               type: "string",
-              name: "projectDescription",
+              name: "description",
               title: "Project Description",
             },
             {
               type: "url",
-              name: "projectLink",
+              name: "link",
               title: "Project Link",
             },
             {
               type: "string",
-              name: "projectType",
+              name: "type",
               title: "Project Type",
               initialValue: "Personal",
               options: {

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Header from "UI/Header/Header";
 
 export const Container = styled.div`
   display: flex;
@@ -7,8 +6,17 @@ export const Container = styled.div`
 `;
 
 export const ProjectList = styled.section`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
   background-color: #111;
-  flex-flow: row wrap;
-  justify-content: space-around;
+
+  @media only screen and (max-width: 875px) {
+    grid-template-columns: 50% 50%;
+  }
+
+  @media only screen and (max-width: 735px) {
+    grid-template-columns: 80%;
+    margin-bottom: 4%;
+    justify-content: center;
+  }
 `;
