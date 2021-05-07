@@ -36,18 +36,18 @@ const Contact = () => {
 
   return (
     <Container>
-      <Header svgUrl={contactSVG} title="Reach me out!" description={contactData.description} />
+      <Header svgUrl={contactSVG} title={contactData.title} description={contactData.description} />
       <Fade bottom>
-        <SubSection>
-          <Section>
+        <Section>
+          <SubSection>
             <h2>Email me</h2>
             <ContactForm />
-          </Section>
-          <Section>
+          </SubSection>
+          <SubSection>
             <h2>Social Media</h2>
             {contactData.aboutData.socialLinks.map(site => <ContactSocialIcon key={site} url={site} fgColor="white" />)}
-          </Section>
-        </SubSection>
+          </SubSection>
+        </Section>
       </Fade>
     </Container>
   )

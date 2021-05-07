@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { StyledSocialIcon } from "components/About/About.styles";
 
-export const SubSection = styled.section`
+export const Section = styled.section`
   display: flex;
   justify-content: space-around;
 
@@ -11,7 +11,7 @@ export const SubSection = styled.section`
   }
 `;
 
-export const Section = styled.div`
+export const SubSection = styled.div`
   flex-basis: 50%;
   text-align: center;
   transition: transform 0.2s linear;

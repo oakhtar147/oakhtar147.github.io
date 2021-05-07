@@ -62,6 +62,52 @@ export default {
       type: "reference",
       to: [{ type: "skills" }],
     },
+    {
+      name: "projects",
+      title: "Projects",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              type: "string",
+              name: "projectTitle",
+              title: "Project Title",
+            },
+            {
+              type: "string",
+              name: "projectDescription",
+              title: "Project Description",
+            },
+            {
+              type: "url",
+              name: "projectLink",
+              title: "Project Link",
+            },
+            {
+              type: "string",
+              name: "projectType",
+              title: "Project Type",
+              initialValue: "Personal",
+              options: {
+                list: [
+                  { title: "Personal", value: "Personal" },
+                  { title: "Client", value: "Client" },
+                  { title: "School", value: "School" },
+                ],
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "projectsData",
+      title: "Projects Data",
+      type: "reference",
+      to: [{ type: "projects" }],
+    },
   ],
   preview: {
     select: {
