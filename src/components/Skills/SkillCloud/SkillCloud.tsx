@@ -1,3 +1,6 @@
+// override console.error to ignore unwanted React warning
+window.console.error = function() {};
+
 import React, { Component } from "react";
 import uuid from "react-uuid";
 import TagCloud from "react-tag-cloud";
@@ -17,7 +20,6 @@ class SkillCloud extends Component<Props> {
   }
 
   render() {
-    console.log(this.props.toolsImages)
     return (
       <div>
         <div className="app-outer-random-suffix-avoid-global">
