@@ -4,7 +4,8 @@ export const Card = styled.div`
   padding: 3%;
   margin: 2% 4%;
   background-color: #1f1f1f;
-  transition: opacity 0.2s linear;
+  opacity: 0.8;
+  transition: all 0.2s ease-in;
 
   & > h3 {
     text-align: center;
@@ -17,7 +18,8 @@ export const Card = styled.div`
   }
 
   &:hover {
-    opacity: 0.4;
+    transform: scale(1.1);
+    opacity: 1;
   }
 `;
 

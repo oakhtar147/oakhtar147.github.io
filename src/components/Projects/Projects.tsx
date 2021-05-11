@@ -41,8 +41,6 @@ const Projects = () => {
     setInterval(() => setShowLoadingScreen(false), 1700);
     return <Loading />
   }
-  
-  console.log(projectsData);
 
   return (
     <Container>
