@@ -55,17 +55,15 @@ const ContactForm = () => {
     onSubmit: (values) => {
       setShowProgress(true);
       emailjs.send('service_wpq7mt5',
-       'template_hhdh4',
+       'template_hhdh4q9',
         values,
         'user_3N0rwtspIe7f09IcgItQI'
       )
       .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
         setShowSnackbar(true);
         setShowProgress(false);
         formik.resetForm();
       }, (error) => {
-        console.log('FAILED...', error);
         setShowSnackbar(true);
         setShowProgress(false);
         setEmailError("We failed to notify Osama about your message. Sorry!")
